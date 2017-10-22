@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Books</title>
+  </head>
+  <body>
+    <a href="/logout">Logout</a>
+    <h1>All Books</h1>
+    <ul>
+      {% for book in books %}
+      <li>{{ book.title }}</li>
+      <li>{{ book.authors }}</li>
+      {% endfor %}
+    </ul>
+  </body>
+</html>
