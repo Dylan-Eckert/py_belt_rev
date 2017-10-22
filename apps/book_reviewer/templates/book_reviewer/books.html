@@ -10,8 +10,25 @@
     <ul>
       {% for book in books %}
       <li>{{ book.title }}</li>
-      <li>{{ book.authors }}</li>
+      <ul>
+        {% for author in book.authors.all %}
+        <li>{{author.name}}</li>
+        {% endfor %}
+      </ul>
       {% endfor %}
     </ul>
+
+    <h2>Add a Book</h2>
+      <form class="" action="/books/add" method="post">
+        {% csrf_token %}
+        <input type="text" name="title" value="" placeholder="book title">
+        <span>Existing Authors</span>
+        <select class="" name="author">
+          {% for author in authors %}
+          <option value="{{author}}">{{author.name}}</option>
+          {% endfor %}
+        </select>
+        <button type="submit" name="addBook">Add Book</button>
+      </form>
   </body>
 </html>

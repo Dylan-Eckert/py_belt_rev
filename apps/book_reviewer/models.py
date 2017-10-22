@@ -31,6 +31,18 @@ class BookManager(models.Manager):
 
         return {'status': len(errors) == 0, 'errors':errors}
 
+    def bookIsValid(self, post):
+        title= post['title'].lower()
+        author= post['author'].lower()
+
+        errors = []
+        if len(title) < 2 :
+             errors.append('Please enter a valid title')
+        if len(author) < 2:
+             errors.append('Please enter a valid author')
+
+        return {'status': len(errors) == 0, 'errors':errors}
+
     def newBook(self, post):
         title = post['title'].lower()
         author = post['author'].lower()
