@@ -45,9 +45,10 @@ class BookManager(models.Manager):
 
     def newBook(self, post):
         title = post['title'].lower()
-        author = post['author'].lower()
-
-        return self.create(title=title, author=author)
+        author = Author.objects.get(id=post['author'])
+        new_book = self.create(title=title)
+        new_book.authors.add(author)
+        return new_book
 
     def newAuthor(self, post):
         name = post['name'].lower()

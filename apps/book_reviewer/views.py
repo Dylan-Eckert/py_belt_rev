@@ -41,5 +41,3 @@ def addBook(req):
             messages.error(req, error)
 
     return redirect('/')
-
-    return data

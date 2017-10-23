@@ -25,7 +25,7 @@
         <span>Existing Authors</span>
         <select class="" name="author">
           {% for author in authors %}
-          <option value="{{author}}">{{author.name}}</option>
+          <option value="{{author.id}}">{{author.name}}</option>
           {% endfor %}
         </select>
         <button type="submit" name="addBook">Add Book</button>
